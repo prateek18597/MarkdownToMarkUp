@@ -1,6 +1,38 @@
 <h1>
-pratik
+Department of Computer Science and Engineering
 </h1>
 <h2>
-PArmar
+ Programming Languages
 </h2>
+<h3>
+ II Semester 2017-18
+</h3>
+<h4>
+ Instructor: [S. Arun-Kumar]
+</h4>
+<h5>
+ Assignment 2
+</h5>
+<h6>
+ A Markdown translator for HTML text + HTML tables from csv format
+</h6>
+<p>
+We need to do the following. Create a markdown+table *functional* program in SML using the functionalities given in <tt>fileIO.sml</tt>.
+</p>
+<ol>
+<li><p>
+This HTML file <tt>mdtab.txt.html</tt> was produced by running
+    [markdown] [jg] on the text file <tt>mdtab.txt</tt>.
+    Use the text file to test your own program.
+
+</p></li>
+<li><p>
+To know about markdown go to the [markdown syntax][jg]
+   page maintained by John Gruber. Many of the simplifications listed
+   below also refer to Gruber's document. 
+
+</p></li>
+<li><p>
+Recognize and leave all inline HTML tags unchanged.
+
+</p></li>

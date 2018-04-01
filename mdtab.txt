@@ -13,8 +13,7 @@
 ###### A Markdown translator for HTML text + HTML tables from csv format
 </center>
 
-We need to do the following. Create a markdown+table *functional* program in SML
-using the functionalities given in <tt>fileIO.sml</tt>.
+We need to do the following. Create a markdown+table *functional* program in SML using the functionalities given in <tt>fileIO.sml</tt>.
 
 10. This HTML file <tt>mdtab.txt.html</tt> was produced by running
     [markdown] [jg] on the text file <tt>mdtab.txt</tt>.

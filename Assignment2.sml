@@ -94,21 +94,83 @@ in
 		strong(String.explode(s),[]);
 end
 
+local
+	fun P([],L,ans) = ([],ans^"<p>\n"^String.implode(List.rev(L))^"\n</p>\n")
+		| P(h::t,L,ans)=
+		if h<> #"\n" andalso hd(t)<> #"\n" then
+			P(t,h::L,ans)
+		else
+			(t,ans^"<p>\n"^String.implode(List.rev(h::L))^"\n</p>\n")
+in
+	fun p(s,ans)=
+		P(s,[],ans);
+end
+
+local
+	fun LI([],L,ans,check) = ([],ans^"<li><p>\n"^String.implode(List.rev(L))^"\n</p></li>\n")
+		| LI(h::t,L,ans,check)=
+		
+		if check=false andalso Char.isDigit(h) then
+			LI(t,L,ans,false)
+		else
+			if check=false andalso h= #"." then
+				LI(tl(t),L,ans,true)
+			else
+				if h= #"\n" andalso hd(t)= #"\n" then
+					(tl(t),ans^"<li><p>\n"^String.implode(List.rev(h::L))^"\n</p></li>\n")
+				else
+					LI(t,h::L,ans,true)
+in
+	fun li(s,ans)=
+		LI(s,[],ans,false);
+end
+
+
+
+
+local
+	fun OL([],ans) = ([],ans)
+		| OL(h::t,ans)=
+		if Char.isDigit(h) then
+			OL(li(t,ans))
+		else
+			(t,ans^"\n</ol>\n")
+in
+	fun ol(s,ans)=
+		OL(s,ans);
+end
+
+
 fun Main([],ans) = append("pratik.txt",ans)
 		|	Main(h::t,ans)=
-		if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" andalso hd(tl(tl(t)))= #"#" then
-					Main(tl(tl(tl(t))),h4(tl(tl(tl(t))),ans))
+
+		if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" andalso hd(tl(tl(t)))= #"#" andalso hd(tl(tl(tl(t))))= #"#" andalso hd(tl(tl(tl(tl(t)))))= #"#" then
+					Main(h6(tl(tl(tl(tl(tl(t))))),ans))
 		else
-			if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" then
-						Main(tl(tl(t)),h3(tl(tl(t)),ans))
+
+			if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" andalso hd(tl(tl(t)))= #"#" andalso hd(tl(tl(tl(t))))= #"#" then
+						Main(h5(tl(tl(tl(tl(t)))),ans))
 			else
-				if h= #"#" andalso hd(t)= #"#" then
-						Main(h2(tl(t),ans))
+
+				if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" andalso hd(tl(tl(t)))= #"#" then
+							Main(h4(tl(tl(tl(t))),ans))
 				else
-					if h= #"#" then
-						Main(h1(t,ans))
+					if h= #"#" andalso hd(t)= #"#" andalso hd(tl(t))= #"#" then
+								Main(h3(tl(tl(t)),ans))
 					else
-				 		append("pratik.txt",ans)
+						if h= #"#" andalso hd(t)= #"#" then
+								Main(h2(tl(t),ans))
+						else
+							if h= #"#" then
+								Main(h1(t,ans))
+							else
+								if Char.isAlpha(h) then
+									Main(p(h::t,ans))
+						 		else
+						 			if h= #"1" orelse h= #"2" orelse h= #"3" orelse h= #"4" orelse h= #"5" orelse h= #"6" orelse h= #"7" orelse h= #"8" orelse h= #"9" then
+						 				Main(ol(h::t,ans^"<ol>\n"))
+						 			else
+						 				Main(t,ans)
 
 fun main(s)=
 	Main(getclist(s),"")
