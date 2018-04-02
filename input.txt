@@ -61,7 +61,31 @@ We need to do the following. Create a markdown+table *functional* program in SML
  
 7. **Lists.** Implement 
 
-- *ordered lists* -- as given by [John Gruber] [jg]. Pay particular 
+   - *ordered lists* -- as given by [John Gruber] [jg]. Pay particular 
      attention to his 1986 example relating to escape sequencing the
      "." in case 1986 comes at the beginning of a line.
-- *unordered lists* -- implement only the hyphen (as done here).
+   - *unordered lists* -- implement only the hyphen (as done here).
+
+1. Implement tables from csv format. For example the following is
+
+   	     <<
+   	     1|2|3|4|9
+   	     5|6|7|8|10
+   	     11|12|13|14|15
+   	     >>
+
+   a possible syntax for an HTML table that looks like
+
+<CENTER><TABLE border="1">
+  <TR><TD>1</TD><TD>2</TD><TD>3</TD><TD>4</TD><TD>9</TD></TR>
+  <TR><TD>5</TD><TD>6</TD><TD>7</TD><TD>8</TD><TD>10</TD></TR>
+  <TR><TD>11</TD><TD>12</TD><TD>13</TD><TD>14</TD><TD>15</TD></TR>
+</TABLE></CENTER>
+
+0. Since this is as clear as possible and has already been discussed
+   in class, I will entertain no individual doubts on any forum. If you
+   still have some doubts, <font color=red>make reasonable design
+   decisions and explicitly state them as comments at the top of your
+   submission file.
+
+[jg]: https://daringfireball.net/projects/markdown/syntax
